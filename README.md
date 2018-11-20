@@ -11,7 +11,17 @@
 ## Running
 
 ```
+export MONGO_URL=mongodb://localhost:27017/
+```
+
+```
 dotnet run
+```
+
+Running with a watch:
+
+```
+dotnet watch run
 ```
 
 ## REPL
@@ -25,15 +35,22 @@ fsharpi
 With httpie:
 
 ```
+// list
 http GET http://localhost:5000/todos
 
-http POST http://localhost:5000/todos
+// create
+http POST http://localhost:5000/todos text="something to do"
 
+// list
 http GET http://localhost:5000/todos
 
-http PUT http://localhost:5000/todos/2
+export TODO_ID=...
 
-http DELETE http://localhost:5000/todos/2
+// update
+http PUT http://localhost:5000/todos/$TODO_ID
+
+// delete
+http DELETE http://localhost:5000/todos/$TODO_ID
 ```
 
 ## Resources
